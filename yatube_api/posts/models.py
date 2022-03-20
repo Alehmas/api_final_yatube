@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 from django.db import models
 
 User = get_user_model()
@@ -21,7 +22,7 @@ class Post(models.Model):
     image = models.ImageField(
         upload_to='posts/', null=True, blank=True)
     group = models.ForeignKey(
-        Group, on_delete=models.CASCADE,
+        Group, on_delete=models.SET_NULL,
         related_name="posts", blank=True, null=True
     )
 
@@ -38,6 +39,9 @@ class Comment(models.Model):
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True)
 
+    def __str__(self):
+        return self.text
+
 
 class Follow(models.Model):
     user = models.ForeignKey(
@@ -50,3 +54,10 @@ class Follow(models.Model):
             models.UniqueConstraint(
                 fields=['user', 'following'], name='unique_following')
         ]
+
+    def __str__(self):
+        return self.following
+
+    def clean(self):
+        if self.user == self.following:
+            raise ValidationError('Подписаться на самого себя нельзя')
