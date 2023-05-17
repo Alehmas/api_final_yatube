@@ -313,7 +313,7 @@ paths:
       tags:
         - api
     post:
-      operationId: adding a comment
+      operationId: Adding a comment
       description: Adding a new comment to a post. Anonymous requests are prohibited.
       parameters:
         - name: post_id
