@@ -2,6 +2,7 @@ from rest_framework import permissions
 
 
 class IsAuthorOrReadOnlyPermission(permissions.BasePermission):
+    """Denies all insecure requests to anyone except the author."""
 
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:

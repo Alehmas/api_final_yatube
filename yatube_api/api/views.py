@@ -9,6 +9,8 @@ from .serializers import (CommentSerializer, FollowSerializer, GroupSerializer,
 
 
 class PostViewSet(viewsets.ModelViewSet):
+    """Have all functionality for creating, editing and delleting a post."""
+
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     pagination_class = LimitOffsetPagination
@@ -19,6 +21,8 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
+    """Have all functionality for creating, editing and delleting a group."""
+
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
@@ -26,6 +30,8 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 class FollowViewSet(mixins.ListModelMixin,
                     mixins.CreateModelMixin,
                     viewsets.GenericViewSet):
+    """Have all functionality for creating and delleting a subscription."""
+
     serializer_class = FollowSerializer
     permission_classes = (permissions.IsAuthenticated,)
     filter_backends = (filters.SearchFilter,)
@@ -39,6 +45,8 @@ class FollowViewSet(mixins.ListModelMixin,
 
 
 class CommentViewSet(viewsets.ModelViewSet):
+    """Have all functionality for creating, editing and delleting a comment."""
+
     serializer_class = CommentSerializer
     permission_classes = (IsAuthorOrReadOnlyPermission,)
 

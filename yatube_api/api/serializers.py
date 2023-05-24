@@ -5,6 +5,8 @@ from posts.models import Comment, Follow, Group, Post, User
 
 
 class PostSerializer(serializers.ModelSerializer):
+    """Serializes data when creating a post"""
+
     author = serializers.SlugRelatedField(slug_field='username',
                                           read_only=True)
 
@@ -14,6 +16,8 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    """Serializes data when creating a comment"""
+
     author = serializers.SlugRelatedField(
         read_only=True, slug_field='username'
     )
@@ -24,12 +28,16 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
+    """Serializes data when creating a group"""
+
     class Meta:
         fields = '__all__'
         model = Group
 
 
 class FollowSerializer(serializers.ModelSerializer):
+    """Serializes data when creating a subscription"""
+
     user = serializers.SlugRelatedField(
         read_only=True, slug_field='username',
         default=serializers.CurrentUserDefault()
