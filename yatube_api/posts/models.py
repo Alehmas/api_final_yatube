@@ -15,6 +15,8 @@ class Group(models.Model):
 
 
 class Post(models.Model):
+    """Model for creating, editing and deleting a post"""
+
     text = models.TextField()
     pub_date = models.DateTimeField('Publication date', auto_now_add=True)
     author = models.ForeignKey(
@@ -31,6 +33,8 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """Model for creating, editing and deleting a comment"""
+
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='comments')
     post = models.ForeignKey(
@@ -44,6 +48,8 @@ class Comment(models.Model):
 
 
 class Follow(models.Model):
+    """Model for creating and deleting a subscription"""
+
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='follower')
     following = models.ForeignKey(
