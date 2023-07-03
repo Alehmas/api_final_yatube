@@ -31,7 +31,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/GetPost'
               examples:
-                Ответ с пагинацией:
+                Reply with pagination:
                   value:
                     count: 123
                     next: http://api.example.org/accounts/?offset=400&limit=100
@@ -693,11 +693,11 @@ paths:
                   value:
                     following:
                       - Required field
-                Пользователь не существует:
+                User does not exist:
                   value:
                     following:
                       - The object with username=... does not exist.
-                Подписка на себя:
+                Subscribe to yourself:
                   value:
                     following:
                       - You can't subscribe to yourself!
