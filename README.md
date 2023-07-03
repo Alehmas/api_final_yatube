@@ -104,4 +104,4 @@ Postman is a popular and convenient API client that can send requests and show r
 More detailed documentation on queries can be found in the running project at http://127.0.0.1:8000/redoc/
 
 ## Authors
-- [Aleh Maslau](https://github.com/Oleg-2006)
+- [Aleh Maslau](https://github.com/Alehmas)
