@@ -1,7 +1,7 @@
 # REST API for YaTube social network.
 
 ##  Description
-Add-on for working through the API to the [Yatube](https://github.com/Oleg-2006/yatube_project) social network project. 
+Add-on for working through the API to the [Yatube](https://github.com/Alehmas/yatube_project) social network project. 
 The Yatube project is a social network. It will allow users to create an account,
 post entries, subscribe to their favorite authors, and tag their favorites.
 
